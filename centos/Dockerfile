@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-MAINTAINER Madawa Soysa <madawa.rc@gmail.com>
+MAINTAINER Madawa Soysa <madawa.soysa@acu.edu.au>
 
 ARG JAVA_VERSON=1.8.0
 ARG MAVEN_VERSION=3.6.1
@@ -20,6 +20,11 @@ RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/bi
 RUN yum -y install epel-release && \
     yum -y install ansible && \
     yum -y install git
+
+# Install Nodejs, NPM and postman
+RUN curl -sL https://rpm.nodesource.com/setup_8.x | bash - && \
+    yum install -y nodejs && \
+    npm install -g newman
 
 # Install Jmeter
 RUN yum -y install wget && \
