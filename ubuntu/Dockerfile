@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER Madawa Soysa <madawa.soysa@gmail.com>
+MAINTAINER Madawa Soysa <madawa.rc@gmail.com>
 
 ARG JAVA_VERSION=8
 ARG MAVEN_VERSION=3.6.1
