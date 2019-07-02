@@ -32,5 +32,7 @@ RUN yum -y install wget && \
     tar -xvzf apache-jmeter-${JMETER_VERSION}.tgz -C /opt/ && \
     yum clean all
 
+RUN sed -i "s|#special_context_filesystems=nfs,vboxsf,fuse,ramfs,9p|special_context_filesystems=nfs,vboxsf,fuse,ramfs,9p,cifs|g" /etc/ansible/ansible.cfg
+
 ENV JMETER_HOME=/opt/apache-jmeter-${JMETER_VERSION}
 ENV PATH=$JMETER_HOME/bin:$PATH
