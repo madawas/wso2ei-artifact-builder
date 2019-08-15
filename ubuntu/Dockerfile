@@ -10,6 +10,8 @@ ARG JMETER_VERSION=5.1.1
 RUN apt-get update && \
     apt-get install -y openjdk-${JAVA_VERSION}-jdk
 
+RUN apt-get install -y unzip    
+
 # Fix certificate issues
 RUN apt-get update && \
     apt-get install ca-certificates-java && \

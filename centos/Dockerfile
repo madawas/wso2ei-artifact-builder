@@ -6,8 +6,9 @@ ARG JAVA_VERSON=1.8.0
 ARG MAVEN_VERSION=3.6.1
 ARG JMETER_VERSION=5.1.1
 
-# Install ansible
+# Install Java
 RUN yum install -y java-${JAVA_VERSON}-openjdk-devel
+RUN yum install -y unzip
 
 ENV JAVA_HOME=/usr/lib/jvm/java
 
