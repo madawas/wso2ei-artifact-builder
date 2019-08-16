@@ -1,0 +1,41 @@
+---
+image: docker:stable
+
+.before_script_template: &docker_reg_login
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build-master:
+  stage: build
+  services:
+    - docker:dind
+  <<: *docker_reg_login    
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" centos/
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master 
+
+build-centos:
+  stage: build
+  services:
+    - docker:dind
+  <<: *docker_reg_login      
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:centos_latest" centos/
+    - docker push "$CI_REGISTRY_IMAGE:centos_latest"
+  only:
+    changes:
+      - centos/*
+
+build-ubuntu:
+  stage: build
+  services:
+    - docker:dind
+  <<: *docker_reg_login      
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:ubuntu_latest" ubuntu/
+    - docker push "$CI_REGISTRY_IMAGE:ubuntu_latest"
+  only:
+    changes:
+      - ubuntu/*
