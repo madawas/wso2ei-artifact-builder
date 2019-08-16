@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-MAINTAINER Madawa Soysa <madawa.rc@gmail.com>
+LABEL maintainer="Madawa Soysa <madawa.rc@gmail.com>"
 
 ARG JAVA_VERSON=1.8.0
 ARG MAVEN_VERSION=3.6.1
