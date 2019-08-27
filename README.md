@@ -15,7 +15,7 @@ WSO2 Enterprise Integrator (WSO2 EI) is a comprehensive integration solution tha
 
 - [ubuntu18.04-jdk8-mvn3.6-jmeter5.1, ubuntu_latest](https://github.com/madawas/wso2ei-artifact-builder/blob/master/ubuntu/Dockerfile)
 
-  Image is built on CentOS 7 and following software versions are installed in the container.
+  Image is built on Ubuntu 18.04 and following software versions are installed in the container.
     - OpenJDK 8
     - Apache Maven: 3.6.1
     - Apache JMeter: 5.1.1
